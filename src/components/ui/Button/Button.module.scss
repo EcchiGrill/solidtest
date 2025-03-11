@@ -4,19 +4,20 @@
   padding: 0.8rem;
   padding-inline: 2rem;
   border-radius: 0.3rem;
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: #000;
   cursor: pointer;
   background-color: #e5e5e5;
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
+    transform: translateY(2px);
     background-color: #d4d4d4;
   }
 }
 
 .blackStyle {
-  background: #000;
+  background-color: #000;
   color: #fff;
 
   &:hover {
@@ -25,9 +26,28 @@
 }
 
 .greenStyle {
-  background: hsl(144, 97, 27);
+  background-color: hsl(144, 97, 27);
   color: #fff;
+
   &:hover {
     background-color: hsl(144, 97, 31);
+  }
+}
+
+.greenStyle_pressed {
+  background-color: hsl(144, 97, 27);
+}
+
+.blackStyle_pressed {
+  background-color: #000;
+}
+
+@media (max-width: 600px) {
+  .greenStyle_pressed {
+    transform: translateY(6px);
+    background-color: hsl(144, 97, 23);
+  }
+  .blackStyle_pressed {
+    transform: translateY(6px);
   }
 }

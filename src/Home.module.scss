@@ -1,3 +1,7 @@
+$green-hue: 144;
+$green-saturation: 97%;
+$green-lightness: 31%;
+
 .container {
   display: flex;
   place-content: center;
@@ -6,4 +10,60 @@
   h1 {
     margin-bottom: 1rem;
   }
+}
+
+.processingText {
+  display: flex;
+  place-items: center;
+  gap: 0.8rem;
+}
+
+.spinner {
+  margin-top: 2px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes processingTextUp {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes payTextUp {
+  from {
+    transform: translateY(16px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-16px);
+    opacity: 0;
+  }
+}
+
+.paymentButton_up {
+  transform: translateY(2px);
+  background-color: hsl($green-hue, $green-saturation, $green-lightness);
+}
+
+.processingText_up {
+  animation: processingTextUp 1s ease-out;
+}
+
+.payText_up {
+  display: inline-block;
+  animation: payTextUp 1s ease-out;
 }
