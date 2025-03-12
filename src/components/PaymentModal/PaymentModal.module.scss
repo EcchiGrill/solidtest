@@ -1,0 +1,63 @@
+.modalBg {
+  background: #000;
+  opacity: 0.2;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.modalContainer {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  height: 40rem;
+  padding: 1.5rem 15rem;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+
+  span:nth-child(2) {
+    font-weight: bold;
+  }
+  span:nth-child(1) {
+    opacity: 0.6;
+  }
+}
+
+.payment {
+  display: grid;
+  grid-template-columns: 420px 420px;
+  gap: 3rem;
+}
+
+.credentialsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.subscription {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin-top: 1rem;
+  }
+}
+
+.checkoutButton {
+  display: flex;
+  place-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+}
