@@ -1,1 +1,1 @@
-# Solidgate Test App
+# Solidgate Test App by Dmytro Oborskyi

@@ -11,6 +11,9 @@
     transform: translateY(2px);
     background-color: #d4d4d4;
   }
+  &:disabled {
+    pointer-events: none;
+  }
 }
 
 .blackStyle {

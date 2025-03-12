@@ -1,16 +1,16 @@
 import { useState } from "react";
 import styles from "./App.module.scss";
-import Button from "./components/ui/Button";
-import { CgSpinner } from "react-icons/cg";
 import PaymentModal from "./components/PaymentModal";
+import PaymentButton from "./components/PaymentButton";
 
 const App = () => {
+  const [isShown, setIsShown] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isDown, setIsDown] = useState(false);
 
-  const mouseUpHandler = () => {
-    setIsDown(false);
-    setIsProcessing(true);
+  const goBack = () => {
+    setIsProcessing(false);
+    setIsShown(false);
   };
 
   const mouseDownHandler = () => {
@@ -22,45 +22,29 @@ const App = () => {
     if (!isProcessing) setIsProcessing(false);
   };
 
+  const mouseUpHandler = () => {
+    setIsDown(false);
+    setIsProcessing(true);
+    setTimeout(() => {
+      setIsShown(true);
+    }, 2000);
+  };
+
   return (
     <>
       <main className={styles.container}>
         <div>
           <h1>👇 Click</h1>
-          <Button
-            className={
-              (isDown ? styles.paymentButton_down : "") +
-              " " +
-              (isProcessing ? styles.paymentButton_up : "")
-            }
-            color="green"
+          <PaymentButton
+            isProcessing={isProcessing}
+            isDown={isDown}
             onMouseUp={mouseUpHandler}
             onMouseDown={mouseDownHandler}
             onMouseLeave={mouseLeaveHandler}
-          >
-            {isProcessing ? (
-              <>
-                <span
-                  className={
-                    styles.processingText +
-                    " " +
-                    (isProcessing ? styles.processingText_up : "")
-                  }
-                >
-                  <CgSpinner className={styles.spinner} size={25} />
-                  Processing payment
-                </span>
-                <span className={isProcessing ? styles.payText_up : ""}>
-                  Pay 299.99 UAH
-                </span>
-              </>
-            ) : (
-              "Pay 299.99 UAH"
-            )}
-          </Button>
+          />
         </div>
       </main>
-      <PaymentModal isShown={true} />
+      <PaymentModal isShown={isShown} goBack={goBack} />
     </>
   );
 };

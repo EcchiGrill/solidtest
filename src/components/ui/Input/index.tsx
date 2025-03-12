@@ -1,33 +1,20 @@
 import { ChangeEvent } from "react";
 import styles from "./Input.module.scss";
 import { InputProps } from "./Input.props";
+import { CARD_MASK, NUMBERS_REGEX, DATE_MASK } from "../../../constants";
+import { formatValue } from "../../../helpers/formatValue";
 
 const Input = ({ className, mask, onChange, ...props }: InputProps) => {
-  const formatValue = (value: string, pattern: string) => {
-    let result = "";
-    let index = 0;
-
-    for (let i = 0; i < pattern.length && index < value.length; i++) {
-      if (pattern[i] === "#") {
-        result += value[index];
-        index++;
-      } else {
-        result += pattern[i];
-      }
-    }
-    return result;
-  };
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    let value = e.target.value.replace(/\D/g, "");
+    let value = e.target.value.replace(NUMBERS_REGEX, "");
 
     if (mask) {
       switch (props.id) {
         case "card":
-          value = formatValue(value.substring(0, 16), "#### #### #### ####");
+          value = formatValue(value.substring(0, 16), CARD_MASK);
           break;
         case "date":
-          value = formatValue(value.substring(0, 4), "##/##");
+          value = formatValue(value.substring(0, 4), DATE_MASK);
           break;
         case "cvc":
           value = value.substring(0, 3);

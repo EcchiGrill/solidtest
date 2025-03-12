@@ -9,13 +9,13 @@
 
 .modalContainer {
   position: absolute;
+  top: 1.5rem;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 10;
   background: #ffffff;
   border-radius: 0.5rem;
-  height: 40rem;
-  padding: 1.5rem 15rem;
+  padding: 2rem 15rem;
 }
 
 .language {
@@ -24,10 +24,14 @@
   justify-content: flex-end;
   gap: 0.6rem;
 
-  span:nth-child(2) {
+  button {
+    font-size: 0.9rem;
+  }
+
+  button:nth-child(2) {
     font-weight: bold;
   }
-  span:nth-child(1) {
+  button:nth-child(1) {
     opacity: 0.6;
   }
 }
@@ -36,6 +40,7 @@
   display: grid;
   grid-template-columns: 420px 420px;
   gap: 3rem;
+  margin-top: 2rem;
 }
 
 .credentialsContainer {
@@ -60,4 +65,121 @@
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 1.2rem;
+  margin-left: -1.2rem;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: hsl(144, 97%, 19%);
+  }
+}
+
+.dateCvcContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.credContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.credentials {
+  display: grid;
+  gap: 1rem;
+  place-content: center;
+
+  form {
+    display: grid;
+    gap: 1rem;
+  }
+}
+
+.cvcContainer {
+  position: relative;
+}
+
+.infoButton {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.policy {
+  color: #666c7b;
+  font-size: 0.9rem;
+  border: 1px solid #b0b4be;
+  border-radius: 0.4rem;
+  padding: 0.7rem;
+}
+
+.copyright {
+  font-size: 1rem;
+  color: #666c7b;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.orderContainer {
+  background-color: #f7f7f9;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: min-content;
+  gap: 1rem;
+  border-radius: 0.8rem;
+}
+
+.order {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.description {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #b4b6bc;
+}
+
+.product {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #b4b6bc;
+
+  span {
+    color: #666c7b;
+  }
+}
+
+.summary {
+  text-align: right;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #666c7b;
+  margin-block: -1rem;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e5e8ed;
+  }
+
+  span {
+    margin: 0 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  .modalContainer {
+    padding: 2rem 3rem;
+  }
 }

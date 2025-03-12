@@ -1,0 +1,65 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes processingTextUp {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes payTextUp {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-16px);
+    opacity: 0;
+  }
+}
+
+.button_up {
+  position: relative;
+  transform: translateY(2px);
+  background-color: hsl(144, 97%, 31%) !important;
+}
+
+.button_down {
+  transform: translateY(-4px);
+  background-color: hsl(144, 97%, 19%) !important;
+  transition: all 80ms ease-in;
+}
+
+.processingText {
+  display: flex;
+  place-items: center;
+  place-content: center;
+  gap: 0.8rem;
+}
+
+.spinner {
+  margin-top: 2px;
+  animation: spin 1s linear infinite;
+}
+
+.processingText_up {
+  animation: processingTextUp 120ms ease-out;
+}
+
+.payText_up {
+  position: absolute;
+  left: 0;
+  right: 0;
+  animation: payTextUp 120ms ease-out forwards;
+}
