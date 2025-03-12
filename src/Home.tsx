@@ -5,9 +5,20 @@ import { CgSpinner } from "react-icons/cg";
 
 const Home = () => {
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isDown, setIsDown] = useState(false);
 
   const mouseUpHandler = () => {
+    setIsDown(false);
     setIsProcessing(true);
+  };
+
+  const mouseDownHandler = () => {
+    setIsDown(true);
+  };
+
+  const mouseLeaveHandler = () => {
+    setIsDown(false);
+    if (!isProcessing) setIsProcessing(false);
   };
 
   return (
@@ -15,25 +26,34 @@ const Home = () => {
       <div>
         <h1>👇 Click</h1>
         <Button
-          className={isProcessing ? styles.paymentButton_up : ""}
+          className={
+            (isDown ? styles.paymentButton_down : "") +
+            " " +
+            (isProcessing ? styles.paymentButton_up : "")
+          }
           color="green"
           onMouseUp={mouseUpHandler}
+          onMouseDown={mouseDownHandler}
+          onMouseLeave={mouseLeaveHandler}
         >
           {isProcessing ? (
-            <span
-              className={
-                styles.processingText +
-                " " +
-                (isProcessing ? styles.processingText_up : "")
-              }
-            >
-              <CgSpinner className={styles.spinner} size={25} />
-              Processing payment
-            </span>
+            <>
+              <span
+                className={
+                  styles.processingText +
+                  " " +
+                  (isProcessing ? styles.processingText_up : "")
+                }
+              >
+                <CgSpinner className={styles.spinner} size={25} />
+                Processing payment
+              </span>
+              <span className={isProcessing ? styles.payText_up : ""}>
+                Pay 299.99 UAH
+              </span>
+            </>
           ) : (
-            <span className={isProcessing ? styles.payText_up : ""}>
-              Pay 299.99 UAH
-            </span>
+            "Pay 299.99 UAH"
           )}
         </Button>
       </div>

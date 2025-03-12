@@ -8,7 +8,7 @@
   color: #000;
   cursor: pointer;
   background-color: #e5e5e5;
-  transition: all 0.3s ease-in-out;
+  transition: all 80ms ease-in;
 
   &:hover {
     transform: translateY(2px);
@@ -26,28 +26,10 @@
 }
 
 .greenStyle {
-  background-color: hsl(144, 97, 27);
+  background-color: hsl(144, 97%, 27%);
   color: #fff;
 
   &:hover {
-    background-color: hsl(144, 97, 31);
-  }
-}
-
-.greenStyle_pressed {
-  background-color: hsl(144, 97, 27);
-}
-
-.blackStyle_pressed {
-  background-color: #000;
-}
-
-@media (max-width: 600px) {
-  .greenStyle_pressed {
-    transform: translateY(6px);
-    background-color: hsl(144, 97, 23);
-  }
-  .blackStyle_pressed {
-    transform: translateY(6px);
+    background-color: hsl(144, 97%, 31%);
   }
 }

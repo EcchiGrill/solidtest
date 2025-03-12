@@ -1,7 +1,3 @@
-$green-hue: 144;
-$green-saturation: 97%;
-$green-lightness: 31%;
-
 .container {
   display: flex;
   place-content: center;
@@ -45,7 +41,7 @@ $green-lightness: 31%;
 
 @keyframes payTextUp {
   from {
-    transform: translateY(16px);
+    transform: translateY(0px);
     opacity: 1;
   }
   to {
@@ -55,15 +51,24 @@ $green-lightness: 31%;
 }
 
 .paymentButton_up {
+  position: relative;
   transform: translateY(2px);
-  background-color: hsl($green-hue, $green-saturation, $green-lightness);
+  background-color: hsl(144, 97%, 31%) !important;
+}
+
+.paymentButton_down {
+  transform: translateY(-4px);
+  background-color: hsl(144, 97%, 19%) !important;
+  transition: all 80ms ease-in;
 }
 
 .processingText_up {
-  animation: processingTextUp 1s ease-out;
+  animation: processingTextUp 120ms ease-out;
 }
 
 .payText_up {
-  display: inline-block;
-  animation: payTextUp 1s ease-out;
+  position: absolute;
+  left: 0;
+  right: 0;
+  animation: payTextUp 120ms ease-out forwards;
 }
